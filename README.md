@@ -16,7 +16,6 @@
 
 ### Association
 
-- belongs_to : pay
 - has_many : items
 - has_many : comments
 - has_many : orders
@@ -44,13 +43,13 @@
 
 | Column         | Type       | Options                      |
 | -------------- | ---------- | ---------------------------- |
-| oder_id        | references |null: false, foreign_key: true|
+| oder           | references |null: false, foreign_key: true|
 | postal_code    | integer    | null: false                  |
 | prefecture_id  | integer    | null: false                  |
 | municipalities | string     | null: false                  |
 | house_number   | string     | null: false                  |
 | building_name  | string     |                              |
-| phone number   | string     | null: false                  |
+| phone_number   | string     | null: false                  |
 
 ### Association
 
