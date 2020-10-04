@@ -16,7 +16,6 @@
 
 ### Association
 
-- belongs_to : address
 - belongs_to : pay
 - has_many : items
 - has_many : comments
@@ -26,10 +25,8 @@
 
 | Column             | Type       | Options                      |
 | ------------------ | ---------- | ---------------------------- |
-| user               | references |null: false, foreign_key: true|
-| image              | text       | null: false                  |
-| product name       | string     | null: false                  |
-| Product Description| text       | null: false                  |
+| product_name       | string     | null: false                  |
+| product_description| text       | null: false                  |
 | category_id        | integer    | null: false                  |
 | state_id           | integer    | null: false                  |
 | region_id          | integer    | null: false                  |
@@ -39,25 +36,26 @@
 
 ### Association
 
-- belongs_to : users
-- has_one : orders
+- belongs_to : user
+- has_one : order
 - has_many : comments
 
 ## addressテーブル
 
 | Column         | Type       | Options                      |
 | -------------- | ---------- | ---------------------------- |
-| user           | references |null: false, foreign_key: true|
-| postal code    | integer    | null: false                  |
-|  prefecture    | string     | null: false                  |
+| oder_id        | references |null: false, foreign_key: true|
+| postal_code    | integer    | null: false                  |
+| prefecture_id  | integer    | null: false                  |
 | municipalities | string     | null: false                  |
-| house number   | string     | null: false                  |
-| building name  | string     |                              |
-|  phone number  | string     | null: false                  |
+| house_number   | string     | null: false                  |
+| building_name  | string     |                              |
+| phone number   | string     | null: false                  |
 
 ### Association
 
-- belongs_to : users
+- belongs_to : user
+- has_one : order
 
 
 ## commentsテーブル
@@ -81,5 +79,6 @@
 
 ### Association
 
-- belongs_to : users
-- belongs_to : users
+- belongs_to : user
+- belongs_to : address
+- belongs_to : item
