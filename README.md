@@ -12,9 +12,7 @@
 | first_name           | string | null: false |
 | family_name_furikana | string | null: false |
 | first_name_furikana  | string | null: false |
-| birthday_year        | integer| null: false |
-| birthday_month       | integer| null: false |
-| birthday_dat         | integer| null: false |
+| birthday             | date   | null: false |
 
 ### Association
 
@@ -32,17 +30,17 @@
 | image              | text       | null: false                  |
 | product name       | string     | null: false                  |
 | Product Description| text       | null: false                  |
-| category           | string     | null: false                  |
-| state              | string     | null: false                  |
-| region             | string     | null: false                  |
-| postage            | string     | null: false                  |
-| Shipping Time      | string     | null: false                  |
+| category           | integer      | null: false                  |
+| state              | integer      | null: false                  |
+| region             | integer    | null: false                  |
+| postage            | integer    | null: false                  |
+| Shipping Time      | integer    | null: false                  |
 | price              | integer    | null: false                  |
 
 ### Association
 
-- belongs_to : users
-- belongs_to : orders
+- has_one : users
+- has_one : orders
 - has_many : comments
 
 ## addressテーブル
@@ -54,8 +52,8 @@
 |  prefecture    | string     | null: false                  |
 | municipalities | string     | null: false                  |
 | house number   | string     | null: false                  |
-| building name  | text       |                              |
-|  phone number  | integer    | null: false                  |
+| building name  | string     |                              |
+|  phone number  | string     | null: false                  |
 
 ### Association
 
@@ -68,11 +66,6 @@
 | --------- | ---------- | ----------- |
 | user_id   | references |             |
 | text      | text       | null: false |
-
-### Association
-
-- belongs_to : users
-- belongs_to : items
 
 ## payテーブル
 
