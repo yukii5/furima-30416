@@ -22,24 +22,24 @@
 - has_many : comments
 - has_many : orders
 
-## itemsテーブル
+## itemテーブル
 
 | Column             | Type       | Options                      |
 | ------------------ | ---------- | ---------------------------- |
-| user_id            | references |null: false, foreign_key: true|
+| user               | references |null: false, foreign_key: true|
 | image              | text       | null: false                  |
 | product name       | string     | null: false                  |
 | Product Description| text       | null: false                  |
-| category           | integer      | null: false                  |
-| state              | integer      | null: false                  |
-| region             | integer    | null: false                  |
-| postage            | integer    | null: false                  |
-| Shipping Time      | integer    | null: false                  |
+| category_id        | integer    | null: false                  |
+| state_id           | integer    | null: false                  |
+| region_id          | integer    | null: false                  |
+| postage_id         | integer    | null: false                  |
+| Shipping Time_id   | integer    | null: false                  |
 | price              | integer    | null: false                  |
 
 ### Association
 
-- has_one : users
+- belongs_to : users
 - has_one : orders
 - has_many : comments
 
@@ -47,7 +47,7 @@
 
 | Column         | Type       | Options                      |
 | -------------- | ---------- | ---------------------------- |
-| user_id        | references |null: false, foreign_key: true|
+| user           | references |null: false, foreign_key: true|
 | postal code    | integer    | null: false                  |
 |  prefecture    | string     | null: false                  |
 | municipalities | string     | null: false                  |
@@ -67,15 +67,6 @@
 | user_id   | references |             |
 | text      | text       | null: false |
 
-## payテーブル
-
-| Column       | Type       | Options     |
-| ------------ | ---------- | ----------- |
-| user_id      | references | null: false, foreign_key: true|
-| card_number  | integer    | null: false |
-| year         | integer    | null: false |
-| month        | integer    | null: false |
-| security code| integer    | null: false |
 
 ### Association
 
@@ -84,7 +75,7 @@
 ## order テーブル
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 | item         | references | null: false, foreign_key: true |
 
 
