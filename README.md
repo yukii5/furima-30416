@@ -28,6 +28,11 @@
 | product_description| text       | null: false                  |
 | category_id        | integer    | null: false                  |
 | price              | integer    | null: false                  |
+| state_id           | integer    | null: false                  |
+| region_id          | integer    | null: false                  |
+| postage_id         | integer    | null: false                  |
+| shipping_time_id   | integer    | null: false                  |
+
 
 ### Association
 
@@ -42,7 +47,7 @@
 | Column         | Type       | Options                      |
 | -------------- | ---------- | ---------------------------- |
 | order          | references |null: false, foreign_key: true|
-| postal_code    | integer    | null: false                  |
+| postal_code    | string     | null: false                  |
 | prefecture_id  | integer    | null: false                  |
 | municipalities | string     | null: false                  |
 | house_number   | string     | null: false                  |
@@ -71,10 +76,6 @@
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | item            | references | null: false, foreign_key: true |
-| state_i         | integer    | null: false                    |
-| region_id       | integer    | null: false                    |
-| postage_id      | integer    | null: false                    |
-| shipping_time_id| integer    | null: false                    |
 
 
 ### Association
