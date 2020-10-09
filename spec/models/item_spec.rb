@@ -75,6 +75,32 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
         end
+        it 'category_idが0の場合出品できない' do
+          @item.category_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Category must be other than 0')
+        end
+        it 'state_idが0の場合出品できない' do
+          @item.state_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include('State must be other than 0')
+        end
+        it 'region_idが0の場合出品できない' do
+          @item.region_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Region must be other than 0')
+        end
+        it 'postage_idが0の場合出品できない' do
+          @item.postage_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Postage must be other than 0')
+        end
+        it 'shipping_time_idが0の場合出品できない' do
+          @item.shipping_time_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Shipping time must be other than 0')
+        end
+
       end
     end
   end

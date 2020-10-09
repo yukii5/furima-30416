@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_time
   belongs_to_active_hash :state
 
-  validates :category_id, :postage_id, :region_id, :shipping_time_id, numericality: { other_than: 0 } 
+  validates :category_id, :postage_id, :region_id, :shipping_time_id, :state_id, numericality: { other_than: 0 } 
 
   
   with_options presence: true do
