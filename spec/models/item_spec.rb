@@ -52,7 +52,7 @@ RSpec.describe Item, type: :model do
         it 'shipping_time_idがなければ出品できない' do
           @item.shipping_time_id = nil
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping time is not a number", "Shipping time can't be blank")
+          expect(@item.errors.full_messages).to include("Shipping time can't be blank")
         end
         it 'priceがなければ出品できない' do
           @item.price = nil
@@ -75,6 +75,13 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
         end
+
+        it 'priceが半角数字以外では出品できない' do
+          @item.price = 'あ亜アaａ１'
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Price is not a number')
+        end
+
         it 'category_idが0の場合出品できない' do
           @item.category_id = 0
           @item.valid?

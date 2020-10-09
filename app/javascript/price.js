@@ -7,15 +7,13 @@
         
       if (value >= 300 && value <= 9999999){
         let fee = value * 0.1
-        let gains = value - fee
-        add_tax.textContent = fee;
-        profit.textContent = gains;
-    } else {
+        let gains = value - fee}
+      else {
       let fee = '-';
-      let gains = '-';
+      let gains = '-';};
       add_tax.textContent = fee;
       profit.textContent = gains;
-    }
+    
   });
 }
 window.addEventListener('load', price);
