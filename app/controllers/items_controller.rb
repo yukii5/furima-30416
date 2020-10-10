@@ -1,22 +1,28 @@
 class ItemsController < ApplicationController
-
-  before_action :login_check, only: [:edit, :update, :destroy]
+  
   before_action :set_item, only: [:show, :edit]
-
-
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  
   def index
-    @items = Item.includes(:user).order('created_at DESC')
-    
+    @items = Item.includes(:user).order('created_at DESC') 
   end
-
+  
   def new
     @item = Item.new    
   end
   
+  def edit
+    if current_user.id != @item.user_id || Order.exists?(item_id: @item.id)
+      redirect_to root_path
+    end
+  end
+  
+
+  
   def update
     @item = Item.find(params[:id])
     if @item.update(items_params)
-      redirect_to root_path
+      redirect_to root_path 
     else
       render :edit
     end
@@ -38,15 +44,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name,:product_name, :product_description, :price, :introduction, :category_id, :condition_id, :state_id, :region_id, :postage_id, :shipping_time_id, :image).merge(user_id: current_user.id)
   end
     
-  
-  
-  def login_check
-    unless user_signed_in?
-      flash[:alert] = 'ログインしてください'
-      redirect_to root_path
-    end
-  end
-
   def set_item
     @item = Item.find(params[:id])
   end
