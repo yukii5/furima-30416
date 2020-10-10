@@ -27,7 +27,7 @@
       <%= link_to '商品の編集', edit_order_path(@item), method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', item_path(@item), method: :delete, class:'item-destroy' %> 
-    <% elsif @item.order.present? %>
+      <% elsif user_signed_in? &&@item.order.present? %>
       <%= link_to '購入画面に進む', new_order_path(@item), method: :get, class:"item-red-btn"%>
     <% end %>
 
