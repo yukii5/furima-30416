@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   private
   
   def order_params
+    # binding.pry
     params.permit(:postal_code, :region_id, :municipalities, :house_number, :building_name, :phone_number, :price).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id], order_id: params[:order_id])
   end
   
