@@ -7,8 +7,9 @@ class OrdersController < ApplicationController
     @address_form = AddressForm.new
   end
 
+  
+  
   def create
-        
     @address_form = AddressForm.new(order_params)
     if @address_form.valid?
       pay_item
