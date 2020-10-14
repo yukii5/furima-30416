@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :current_user
   before_action :set_item, only: [:index, :edit, :update, :pay_item, :create]
   before_action :move_to_index, only: [:index]
   before_action :authenticate_user!,onry: [:index, :show]
 
   def index
-    @address = AddressForm.new
+    @address_form = AddressForm.new
   end
 
   def create
