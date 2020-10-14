@@ -10,10 +10,10 @@ class OrdersController < ApplicationController
 
   def create
         
-    @address = AddressForm.new(order_params)
-    if @address.valid?
+    @address_form = AddressForm.new(order_params)
+    if @address_form.valid?
       pay_item
-      @address.save
+      @address_form.save
       return redirect_to root_path
     else
       render :index

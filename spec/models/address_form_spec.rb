@@ -29,9 +29,9 @@ RSpec.describe AddressForm, type: :model do
         expect(@address_form.errors.full_messages).to include( "Postal code is invalid. Include hyphen(-)")
       end
       it 'region_idが空だと購入できないこと' do
-        @address_form.region_id = nil
+        @address_form.region_id = 0
         @address_form.valid?
-        expect(@address_form.errors.full_messages).to include("Region can't be blank")
+        expect(@address_form.errors.full_messages).to include("Region must be other than 0")
       end
       it 'municipalitiesが空だと購入できないこと' do
         @address_form.municipalities = nil
