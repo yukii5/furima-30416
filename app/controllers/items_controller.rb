@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
     end
   end
   
-  
   def create
     @item = Item.new(items_params)
     if @item.save
@@ -51,6 +50,8 @@ class ItemsController < ApplicationController
   def items_params
     params.require(:item).permit(:name,:product_name, :product_description, :price, :introduction, :category_id, :condition_id, :state_id, :region_id, :postage_id, :shipping_time_id, :image).merge(user_id: current_user.id)
   end
+
+
     
   def set_item
     @item = Item.find(params[:id])
